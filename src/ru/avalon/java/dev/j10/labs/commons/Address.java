@@ -1,3 +1,23 @@
+package ru.avalon.java.dev.j10.labs.commons;
+
+public class Address {
+    
+    private String city;
+    private String street;
+    private String home;
+    private String kv;
+    
+    public Address(String city, String street, String home, String kv) {
+        this.city = city;
+        this.street = street;
+        this.home = home;
+        this.kv = kv;
+    }
+    
+    public String getAddress() {
+        return city + ", " + street + ", " + home + ", " + kv;
+    }
+}
 /*
  * TODO(Студент): Создайте класс Address.
  *

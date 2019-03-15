@@ -1,5 +1,7 @@
 package ru.avalon.java.dev.j10.labs.models;
 
+import ru.avalon.java.dev.j10.labs.commons.Address;
+
 /**
  * Представление о человеке.
  * <p>
@@ -12,7 +14,38 @@ package ru.avalon.java.dev.j10.labs.models;
  * </ol>
  */
 public class Person {
-
+    
+    private String name;
+    private String surname;
+    private String patronymic;
+    private String secondName;
+    
+    private Passport passport;
+    private Address address;
+    
+    public Person(String name, String surname) {
+        this.name = name;
+        this.surname = surname;
+    }
+    
+    public Person(String name, String surname, String patronymic) {
+        this(name, surname);
+        this.patronymic = patronymic;
+    }
+    
+    public Person(String name, String surname, String patronymic, String secondName) {
+        this(name, surname, patronymic);
+        this.secondName = secondName;
+    }
+    
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+    
+    public void setPassport(Passport passport) {
+        this.passport = passport;
+    }
+    
     /*
      * TODO(Студент): Создайте класс Address.
      *
@@ -50,7 +83,19 @@ public class Person {
         /*
          * TODO(Студент): Закончить определение метода 'getFullName()' класса 'Person'
          */
-        return null;
+        String fullName;
+        
+        if ((patronymic == null) && (secondName == null)) {
+            fullName = name + " " + surname;
+        }
+        else if ((patronymic == null) && (secondName != null)) {
+            fullName = name + " " + secondName.substring(0,1) + ". " + surname;
+        }
+        else {
+            fullName = name + " " + surname + " " + patronymic;
+        }
+        
+        return fullName;
     }
 
     /**
@@ -65,6 +110,6 @@ public class Person {
         /*
          * TODO(Студент): Закончить определение метода 'getAddress()' класса 'Person'
          */
-        return null;
+        return address.getAddress();
     }
 }

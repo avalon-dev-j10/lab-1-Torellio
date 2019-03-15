@@ -1,17 +1,18 @@
 package ru.avalon.java.dev.j10.labs;
 
+import ru.avalon.java.dev.j10.labs.commons.Address;
 import ru.avalon.java.dev.j10.labs.models.Person;
 
 public class Main {
 
-    Main() {
+    public static void main(String args[]) {
 
         /*
          * FIXME(Студент): Измените определение метода так, чтобы он стал точкой входа в приложение.
          */
 
-        Person ivanov = null;
-        Person smith = null;
+        Person ivanov = new Person("Иванов", "Иван", "Иванович");
+        Person smith = new Person("John", "Smith", null, "Edvard");
 
         /*
          * TODO(Студент): Создайте экземпляры класса 'Person'
@@ -24,7 +25,16 @@ public class Main {
          *    чтобы она адресовала объект типа 'Person'
          *    описывающий человека по имени 'John Edvard Smith'.
          */
-
+        
+        String ivanovFullName = ivanov.getFullName();
+        String smithFullName = smith.getFullName();
+        
+        ivanov.setAddress(new Address("SPB", "Nevskiy", "33", "11"));
+        smith.setAddress(new Address("SPB", "Nevskiy", "33", "12"));
+        
+        String ivanovAddress = ivanov.getAddress();
+        String smithAddress = smith.getAddress();
+        
         /*
          * TODO(Студент): Создайте несколько строковых переменных:
          *
@@ -44,7 +54,12 @@ public class Main {
          *    человека, описанного объектом, адресованным
          *    переменной 'smith'.
          */
-
+        
+        System.out.println(ivanovFullName);
+        System.out.println(smithFullName);
+        System.out.println(ivanovAddress);
+        System.out.println(smithAddress);
+        
         /*
          * TODO(Студент): Выведите в консоль значения созданных строковых переменных:
          *

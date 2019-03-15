@@ -1,5 +1,7 @@
 package ru.avalon.java.dev.j10.labs.models;
 
+import java.util.Date;
+
 /**
  * Представление о паспортных данных человека.
  * <p>
@@ -15,8 +17,8 @@ package ru.avalon.java.dev.j10.labs.models;
  *  <li> орган, выдавший документ.
  * </ol>
  */
-class Passport {
-
+public class Passport {
+    
     /*
      * TODO(Студент): Закончить определение класса.
      *
@@ -37,4 +39,64 @@ class Passport {
      * 5. Обеспечте возможность использования класса за
      *    пределами пакета.
      */
+    
+    private String serAndNum;
+    private String name;
+    private String surname;
+    private String patronymic;
+    private String secondName;
+    private Date birthDate;
+    private Date dateOfIssue;
+    private String whoIssued;
+    
+    public Passport(String serAndNum, String name, String surname, Date birtDate, Date dateOfIssue, String whoIssued) {
+        this.serAndNum = serAndNum;
+        this.name = name;
+        this.surname = surname;
+        this.birthDate = birtDate;
+        this.dateOfIssue = dateOfIssue;
+        this.whoIssued = whoIssued;
+    }
+    
+    public Passport(String serAndNum, String name, String surname, String patronymic, Date birtDate, Date dateOfIssue, String whoIssued) {
+        this(serAndNum, name, surname, birtDate, dateOfIssue, whoIssued);
+        this.patronymic = patronymic;
+    }
+    
+    public Passport(String serAndNum, String name, String surname, String patronymic, String secondName, Date birtDate, Date dateOfIssue, String whoIssued) {
+        this(serAndNum, name, surname, patronymic, birtDate, dateOfIssue, whoIssued);
+        this.secondName = secondName;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public String getSurname() {
+        return surname;
+    }
+    
+    public String getPatronymic() {
+        return patronymic;
+    }
+    
+    public String getSecondName() {
+        return secondName;
+    }
+    
+    public String getSerAndNum() {
+        return serAndNum;
+    }
+    
+    public Date getBirthDate() {
+        return birthDate;
+    }
+    
+    public Date getDateOfIssue() {
+        return dateOfIssue;
+    }
+    
+    public String getWhoIssued() {
+        return whoIssued;
+    }  
 }
